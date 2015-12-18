@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Servo Library &mdash; Servo Motors 0.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/viper.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Servo Motors 0.3.0 documentation" href="index.html"/>
+        <link rel="prev" title="Servo Library" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Servo Motors</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Servo Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#servo-class">Servo class</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Servo Motors</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Servo Library</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/servo.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <span class="target" id="module-servo"></span><div class="section" id="servo-library">
+<h1>Servo Library<a class="headerlink" href="#servo-library" title="Permalink to this headline">¶</a></h1>
+<p>This module contains class definitions for servo motors.</p>
+<p>The Servo class provides methods for handling generic servo motors connected to PWM enabled pins.
+It also provides easily accessible attributes for the control of motor positions with pulse width or angle inputs.</p>
+<p>Every Servo instance implements the following methods:</p>
+<blockquote>
+<div><ul class="simple">
+<li>attach: connects the servo motor and sets the default position</li>
+<li>detach: sets the PWM pulse width of the instanced servo to 0 thus disconnecting the motor</li>
+<li>moveToDegree: sets the servo position to the desired angle passed as float</li>
+<li>moveToPulseWidth: sets the servo position to the desired raw value expressed as pulse width (int) microseconds</li>
+<li>getCurrentPulseWidth: returns the current servo position in pulse width (int) microseconds</li>
+<li>getCurrentDegree: returns the current position in degrees</li>
+</ul>
+</div></blockquote>
+<div class="section" id="servo-class">
+<h2>Servo class<a class="headerlink" href="#servo-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="servo.Servo">
+<em class="property">class </em><code class="descname">Servo</code><span class="sig-paren">(</span><em>pin</em>, <em>min_width=500</em>, <em>max_width=2500</em>, <em>default_width=1500</em>, <em>period=20000</em><span class="sig-paren">)</span><a class="headerlink" href="#servo.Servo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Servo instance:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>pin</em>: it is the pin where the servo motor signal wire is connected. The pin requires PWM functionality and its name has to be passed using the DX.PWM notation</li>
+<li><em>min_width</em>: it is the min value of the control PWM pulse width (microseconds). It has to be tuned according to servo capabilities. Defaults is set to 500.</li>
+<li><em>max_width</em>: it is the max value of the control PWM pulse width (microseconds). It has to be tuned according to servo capabilities. Defaults is set to 2500.</li>
+<li><em>default_width</em>: it is the position where the servo motor is moved when attached. It is expressed in microseconds and the default is set to 1500 corresponding to 90 degrees if the min-max range is set as default.</li>
+<li><em>period</em>: it is the period of the PWM used for controlling the servo expressed in microseconds. Default is 20000 microseconds that is the most used standard.</li>
+</ul>
+</div></blockquote>
+<p>After initialization the servo motor object is created and the controlling PWM set to 0 leaving the servo digitally disconnected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="servo.attach">
+<code class="descname">attach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#servo.attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes <em>default_width</em> to the servo associated PWM, enabling the motor and moving it to the default position.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="servo.detach">
+<code class="descname">detach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#servo.detach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes 0 to the servo associated PWM disabling the motor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="servo.moveToDegree">
+<code class="descname">moveToDegree</code><span class="sig-paren">(</span><em>degree</em><span class="sig-paren">)</span><a class="headerlink" href="#servo.moveToDegree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the servo motor to the desired position expressed in degrees (float).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="servo.moveToPulseWidth">
+<code class="descname">moveToPulseWidth</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#servo.moveToPulseWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the servo motor to the desired position expressed as pulse width (int) microseconds. The input has to be in min_width:max_width range.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="servo.getCurrentPulseWidth">
+<code class="descname">getCurrentPulseWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#servo.getCurrentPulseWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the servo motor position as pulse width (microseconds).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="servo.getCurrentDegree">
+<code class="descname">getCurrentDegree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#servo.getCurrentDegree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the servo motor position as degrees.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Servo Library"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Viper Team.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

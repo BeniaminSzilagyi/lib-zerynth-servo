@@ -1,0 +1,8 @@
+{
+	"version":"0.3.0",
+	"title":"Servo Motors",
+	"copyright":"Viper Team",
+	"files":[
+		["Servo Motors","servo.py"]
+	]
+}
