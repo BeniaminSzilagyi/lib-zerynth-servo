@@ -1,8 +1,7 @@
 {
-        "author": "dev@viperize.it",
         "description": "Servo Motors",
         "name": "Servo Motors",
-        "fullname":"lib.viper.servo",
+        "fullname":"lib.zerynth.servo",
         "dependencies":{
         }
 }
