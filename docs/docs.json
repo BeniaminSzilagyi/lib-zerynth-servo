@@ -1,7 +1,7 @@
 {
 	"version":"0.3.0",
 	"title":"Servo Motors",
-	"copyright":"Viper Team",
+	"copyright":"Zerynth Team",
 	"files":[
 		["Servo Motors","servo.py"]
 	]
