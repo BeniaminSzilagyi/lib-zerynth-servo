@@ -7,8 +7,7 @@ Servo Library
 
 This module contains class definitions for servo motors. 
 
-The Servo class provides methods for handling generic servo motors connected to PWM enabled pins.
-It also provides easily accessible attributes for the control of motor positions with pulse width or angle inputs.
+The Servo class provides methods for handling generic servo motors connected to PWM enabled pins. It also provides easily accessible attributes for the control of motor positions with pulse width or angle inputs.
 
 Every Servo instance implements the following methods:
 
@@ -34,11 +33,11 @@ class Servo():
     
         Creates a Servo instance:
 
-            * *pin*: it is the pin where the servo motor signal wire is connected. The pin requires PWM functionality and its name has to be passed using the DX.PWM notation
-            * *min_width*: it is the min value of the control PWM pulse width (microseconds). It has to be tuned according to servo capabilities. Defaults is set to 500.  
-            * *max_width*: it is the max value of the control PWM pulse width (microseconds). It has to be tuned according to servo capabilities. Defaults is set to 2500.  
-            * *default_width*: it is the position where the servo motor is moved when attached. It is expressed in microseconds and the default is set to 1500 corresponding to 90 degrees if the min-max range is set as default. 
-            * *period*: it is the period of the PWM used for controlling the servo expressed in microseconds. Default is 20000 microseconds that is the most used standard.
+            * **pin**: it is the pin where the servo motor signal wire is connected. The pin requires PWM functionality and its name has to be passed using the DX.PWM notation
+            * **min_width**: it is the min value of the control PWM pulse width (microseconds). It has to be tuned according to servo capabilities. Defaults is set to 500.  
+            * **max_width**: it is the max value of the control PWM pulse width (microseconds). It has to be tuned according to servo capabilities. Defaults is set to 2500.  
+            * **default_width**: it is the position where the servo motor is moved when attached. It is expressed in microseconds and the default is set to 1500 corresponding to 90 degrees if the min-max range is set as default. 
+            * **period**: it is the period of the PWM used for controlling the servo expressed in microseconds. Default is 20000 microseconds that is the most used standard.
 
         After initialization the servo motor object is created and the controlling PWM set to 0 leaving the servo digitally disconnected
     """
@@ -64,7 +63,7 @@ class Servo():
         """
         .. method:: attach()
         
-            Writes *default_width* to the servo associated PWM, enabling the motor and moving it to the default position. 
+            Writes **default_width** to the servo associated PWM, enabling the motor and moving it to the default position. 
         """
 
         pwm.write(self.pin,self.period,self.defaultPosition,MICROS)

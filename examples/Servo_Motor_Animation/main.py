@@ -1,14 +1,14 @@
 ################################################################################
 # Servo Motor Animation 
 #
-# Created by VIPER Team 2015 CC
+# Created by Zerynth Team 2015 CC
 # Authors: D. Mazzei, G. Baldi,  
 ###############################################################################
 
 
 from servo import servo
-# WARNING! for this example to work the package lib.viper.animator must be installed!
-from animator import animator
+# WARNING! for this example to work the community floyd.animator must be installed!
+from community.floyd.animator import animator
 import streams
 
 s=streams.serial()
@@ -20,7 +20,7 @@ pointList= [(0,0),(180,10000),(90,3000),(0,5000),(180,5000)]
 
 print("scheduled positions at times (ms):",pointList)
 
-# create a servo motor attaching it to the pin D11. Specification of the PWM feature using the Viper pin mapping signature is required. 
+# create a servo motor attaching it to the pin D11. Specification of the PWM feature using the Zerynth pin mapping signature is required. 
 # min max defaults in this case are selected for working with Hitech servomotors
 MyServo=servo.Servo(D11.PWM,500,2500)
 
